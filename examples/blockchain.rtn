@@ -1,0 +1,27 @@
+import blockchain
+import json
+
+print("=== blockchain api demo ===\n")
+
+# get bitcoin price
+print("fetching bitcoin price...")
+btc_data = blockchain.btc_price()
+btc = json.parse(btc_data)
+print("bitcoin (btc):", btc["data"]["amount"], "usd")
+print()
+
+# get ethereum price
+print("fetching ethereum price...")
+eth_data = blockchain.eth_price()
+eth = json.parse(eth_data)
+print("ethereum (eth):", eth["data"]["amount"], "usd")
+print()
+
+# get custom crypto price
+print("fetching solana price...")
+sol_data = blockchain.price("sol")
+sol = json.parse(sol_data)
+print("solana (sol):", sol["data"]["amount"], "usd")
+print()
+
+print("demo complete!")

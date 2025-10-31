@@ -1,0 +1,33 @@
+import github
+import json
+
+print("=== github api demo ===\n")
+
+# get user information
+print("fetching user info...")
+user_data = github.user("torvalds")
+user = json.parse(user_data)
+print("user:", user["login"])
+print("name:", user["name"])
+print("followers:", user["followers"])
+print("repos:", user["public_repos"])
+print()
+
+# get repository information
+print("fetching repository info...")
+repo_data = github.repo("rust-lang", "rust")
+repo = json.parse(repo_data)
+print("repo:", repo["full_name"])
+print("stars:", repo["stargazers_count"])
+print("forks:", repo["forks_count"])
+print("language:", repo["language"])
+print()
+
+# search repositories
+print("searching repositories...")
+search_data = github.search("language:rust stars:>1000")
+results = json.parse(search_data)
+print("found", results["total_count"], "repositories")
+print()
+
+print("demo complete!")

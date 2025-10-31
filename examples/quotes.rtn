@@ -1,0 +1,33 @@
+import quotes
+import json
+
+print("=== quotes api demo ===\n")
+
+# get random quote
+print("random quote:")
+quote_data = quotes.random()
+quote = json.parse(quote_data)
+print("\"" + quote["content"] + "\"")
+print("- " + quote["author"])
+print()
+
+# get quote of the day
+print("quote of the day:")
+today_data = quotes.today()
+today = json.parse(today_data)
+if len(today) > 0:
+    q = today[0]
+    print("\"" + q["content"] + "\"")
+    print("- " + q["author"])
+print()
+
+# get quotes by author
+print("quotes by einstein:")
+einstein_data = quotes.author("albert einstein")
+einstein = json.parse(einstein_data)
+if einstein["count"] > 0:
+    results = einstein["results"]
+    first = results[0]
+    print("\"" + first["content"] + "\"")
+
+print("\ndemo complete!")

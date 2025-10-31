@@ -1,0 +1,30 @@
+import jokes
+import json
+
+print("=== jokes api demo ===\n")
+
+# get random joke
+print("random joke:")
+joke_data = jokes.random()
+joke = json.parse(joke_data)
+print(joke["setup"])
+print(joke["punchline"])
+print()
+
+# get programming joke
+print("programming joke:")
+prog_data = jokes.programming()
+prog = json.parse(prog_data)
+if len(prog) > 0:
+    p = prog[0]
+    print(p["setup"])
+    print(p["punchline"])
+print()
+
+# get multiple jokes
+print("getting 3 jokes...")
+multiple_data = jokes.multiple(3)
+multiple = json.parse(multiple_data)
+print("received", len(multiple), "jokes")
+
+print("\ndemo complete!")

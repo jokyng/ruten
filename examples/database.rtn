@@ -1,0 +1,52 @@
+import database
+
+print("=== database demo ===\n")
+
+# set values
+print("storing data...")
+database.set("name", "ruten")
+database.set("version", "2.0.0")
+database.set("author", "ogcae")
+database.set("language", "rust")
+print("data stored!")
+print()
+
+# get values
+print("retrieving data...")
+name = database.get("name")
+version = database.get("version")
+author = database.get("author")
+print("name:", name)
+print("version:", version)
+print("author:", author)
+print()
+
+# check if key exists
+print("checking keys...")
+exists = database.exists("name")
+print("'name' exists:", exists)
+missing = database.exists("missing")
+print("'missing' exists:", missing)
+print()
+
+# get all keys
+print("all keys:")
+keys = database.keys()
+for key in keys:
+    value = database.get(key)
+    print("  " + key + ":", value)
+print()
+
+# delete a key
+print("deleting 'language' key...")
+database.delete("language")
+print("deleted!")
+print()
+
+# verify deletion
+print("keys after deletion:")
+keys = database.keys()
+for key in keys:
+    print("  " + key)
+
+print("\ndemo complete!")

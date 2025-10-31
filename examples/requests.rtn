@@ -1,0 +1,52 @@
+import http
+import json
+
+print("http client demo")
+print("----------------")
+print()
+
+# simple get request
+print("fetching github user data...")
+response = http.get("https://api.github.com/users/ogcae")
+
+if response.status == 200:
+    data = json.parse(response.body)
+    print("username:", data["login"])
+    print("name:", data["name"])
+    print("public repos:", data["public_repos"])
+else:
+    print("error: status", response.status)
+
+print()
+
+# get request with headers
+print("fetching with custom headers...")
+headers = {
+    "user-agent": "ruten/2.0",
+    "accept": "application/json"
+}
+
+response = http.get("https://api.github.com/users/ogcae", headers)
+print("status:", response.status)
+print("response length:", len(response.body))
+
+print()
+
+# post request
+print("sending post request...")
+body = json.stringify({
+    "name": "ruten",
+    "version": "2.0.0",
+    "language": "rust"
+})
+
+headers = {
+    "content-type": "application/json"
+}
+
+response = http.post("https://httpbin.org/post", body, headers)
+print("status:", response.status)
+
+if response.status == 200:
+    data = json.parse(response.body)
+    print("echo:", data["json"])

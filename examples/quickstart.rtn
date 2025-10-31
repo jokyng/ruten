@@ -1,0 +1,42 @@
+print("welcome to ruten!")
+print()
+
+# variables and types
+name = "ruten"
+version = 2.0
+is_fast = true
+
+print("language:", name)
+print("version:", version)
+print("fast:", is_fast)
+print()
+
+# functions
+def greet(name):
+    return "hello, " + name + "!"
+
+print(greet("world"))
+print(greet("developer"))
+print()
+
+# lists and loops
+numbers = [1, 2, 3, 4, 5]
+print("numbers:", numbers)
+
+total = 0
+for num in numbers:
+    total = total + num
+
+print("sum:", total)
+print()
+
+# dictionaries
+person = {
+    "name": "alice",
+    "age": 30,
+    "role": "developer"
+}
+
+print("person:", person)
+print("name:", person["name"])
+print("role:", person["role"])

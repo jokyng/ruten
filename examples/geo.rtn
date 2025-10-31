@@ -1,0 +1,35 @@
+import geo
+import json
+
+print("=== geolocation api demo ===\n")
+
+# get current ip location
+print("getting your location...")
+myip_data = geo.myip()
+location = json.parse(myip_data)
+print("ip:", location["ip"])
+print("city:", location["city"])
+print("country:", location["country_name"])
+print("latitude:", location["latitude"])
+print("longitude:", location["longitude"])
+print()
+
+# lookup specific ip
+print("looking up google dns (8.8.8.8)...")
+lookup_data = geo.lookup("8.8.8.8")
+google = json.parse(lookup_data)
+print("location:", google["city"] + ", " + google["country_name"])
+print()
+
+# calculate distance between two points
+print("calculating distance...")
+# new york to london
+ny_lat = 40.7128
+ny_lon = -74.0060
+london_lat = 51.5074
+london_lon = -0.1278
+
+distance = geo.distance(ny_lat, ny_lon, london_lat, london_lon)
+print("distance from new york to london:", distance, "km")
+
+print("\ndemo complete!")

@@ -1,0 +1,29 @@
+import webhook
+import json
+
+print("webhook server demo")
+print("-------------------")
+print()
+
+# define webhook handler
+def handle_webhook(data):
+    print("received webhook data:")
+    payload = json.parse(data)
+    print("  event:", payload["event"])
+    print("  timestamp:", payload["timestamp"])
+    
+    # return success response
+    response = {
+        "status": "success",
+        "processed": true,
+        "message": "webhook received"
+    }
+    
+    return json.stringify(response)
+
+# start webhook server
+print("starting webhook server on port 8080...")
+print("send post requests to http://localhost:8080")
+print()
+
+webhook.listen(8080, handle_webhook)

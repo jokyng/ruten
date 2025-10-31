@@ -1,0 +1,28 @@
+import crypto_prices
+import json
+
+print("=== cryptocurrency prices demo ===")
+print("")
+
+# get bitcoin price
+print("fetching bitcoin price...")
+btc_data = crypto_prices.price("btc")
+btc = json.parse(btc_data)
+print("bitcoin (btc):", btc["data"]["amount"], btc["data"]["currency"])
+print("")
+
+# get ethereum price
+print("fetching ethereum price...")
+eth_data = crypto_prices.price("eth")
+eth = json.parse(eth_data)
+print("ethereum (eth):", eth["data"]["amount"], eth["data"]["currency"])
+print("")
+
+# get price in different currency
+print("bitcoin price in eur:")
+btc_eur = crypto_prices.price("btc", "eur")
+btc_eur_parsed = json.parse(btc_eur)
+print("bitcoin (btc):", btc_eur_parsed["data"]["amount"], btc_eur_parsed["data"]["currency"])
+print("")
+
+print("crypto prices demo complete!")

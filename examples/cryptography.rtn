@@ -1,0 +1,39 @@
+import crypto
+
+print("crypto module demo")
+print("------------------")
+print()
+
+# hashing algorithms
+text = "hello ruten"
+print("original text:", text)
+print("sha256 hash:", crypto.sha256(text))
+print("md5 hash:", crypto.md5(text))
+print()
+
+# secure random generation
+print("random float (0-1):", crypto.random())
+print("random int (1-100):", crypto.randint(1, 100))
+print("random hex (32 bytes):", crypto.random_hex(32))
+print()
+
+# uuid generation
+print("generated uuid:", crypto.uuid())
+print()
+
+# random selection
+colors = ["red", "green", "blue", "yellow", "purple"]
+print("available colors:", colors)
+print("random choice:", crypto.choice(colors))
+print()
+
+# password hashing example
+password = "supersecret123"
+hashed = crypto.sha256(password)
+print("password:", password)
+print("hashed:", hashed)
+print()
+
+# token generation
+token = crypto.random_hex(16)
+print("api token:", token)

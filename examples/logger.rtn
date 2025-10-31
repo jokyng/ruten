@@ -1,0 +1,26 @@
+import logger
+
+print("=== logger demo ===\n")
+
+# different log levels
+logger.info("this is an info message")
+logger.warn("this is a warning message")
+logger.error("this is an error message")
+logger.debug("this is a debug message")
+logger.success("this is a success message")
+print()
+
+# logging with variables
+name = "ruten"
+version = "2.0.0"
+logger.info("language:", name, "version:", version)
+print()
+
+# logging in a loop
+logger.info("processing items...")
+for i in range(1, 6):
+    logger.debug("processing item", i)
+logger.success("all items processed!")
+print()
+
+print("demo complete!")

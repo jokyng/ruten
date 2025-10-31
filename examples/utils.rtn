@@ -1,0 +1,46 @@
+import utils
+
+print("=== utilities demo ===")
+print("")
+
+# generate uuid
+print("generating uuid:")
+id = utils.uuid()
+print("uuid:", id)
+print("")
+
+# get timestamp
+print("current timestamp:")
+ts = utils.timestamp()
+print("unix timestamp:", ts)
+ts_ms = utils.timestamp_ms()
+print("timestamp (ms):", ts_ms)
+print("")
+
+# random operations
+print("random operations:")
+rand = utils.random()
+print("random float:", rand)
+
+randint = utils.randint(1, 100)
+print("random int (1-100):", randint)
+
+choices = ["apple", "banana", "orange", "grape"]
+choice = utils.choice(choices)
+print("random choice:", choice)
+print("")
+
+# environment variables
+print("environment variable test:")
+utils.setenv("RUTEN_TEST", "hello world")
+value = utils.getenv("RUTEN_TEST")
+print("RUTEN_TEST =", value)
+print("")
+
+# sleep demo
+print("sleeping for 1 second...")
+utils.sleep(1)
+print("done!")
+print("")
+
+print("utilities demo complete!")

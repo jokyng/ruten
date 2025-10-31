@@ -1,0 +1,39 @@
+import testing
+import logger
+
+print("=== testing demo ===\n")
+
+# test assert_equal
+logger.info("testing assert_equal...")
+testing.assert_equal(5, 5)
+testing.assert_equal("hello", "hello")
+logger.success("assert_equal passed!")
+print()
+
+# test assert_true
+logger.info("testing assert_true...")
+testing.assert_true(true)
+testing.assert_true(1 > 0)
+logger.success("assert_true passed!")
+print()
+
+# test assert_false
+logger.info("testing assert_false...")
+testing.assert_false(false)
+testing.assert_false(1 > 10)
+logger.success("assert_false passed!")
+print()
+
+# test function
+def add(a, b):
+    return a + b
+
+logger.info("testing add function...")
+result = add(2, 3)
+testing.assert_equal(result, 5)
+logger.success("add function works correctly!")
+print()
+
+# test with logger
+logger.info("all tests passed!")
+logger.success("testing demo complete!")

@@ -1,0 +1,43 @@
+import stats
+
+print("=== statistics demo ===")
+print("")
+
+# sample dataset
+data = [12, 15, 18, 20, 22, 25, 28, 30, 35, 40]
+print("dataset:", data)
+print("")
+
+# calculate mean
+mean_val = stats.mean(data)
+print("mean:", mean_val)
+
+# calculate median
+median_val = stats.median(data)
+print("median:", median_val)
+
+# calculate standard deviation
+stdev_val = stats.stdev(data)
+print("standard deviation:", stdev_val)
+
+# calculate variance
+var_val = stats.variance(data)
+print("variance:", var_val)
+
+# find min and max
+min_val = stats.min(data)
+max_val = stats.max(data)
+print("min:", min_val)
+print("max:", max_val)
+print("")
+
+# correlation between two datasets
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+print("dataset x:", x)
+print("dataset y:", y)
+corr = stats.correlation(x, y)
+print("correlation:", corr)
+print("")
+
+print("statistics demo complete!")

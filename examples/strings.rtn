@@ -1,0 +1,43 @@
+import strings
+
+print("strings module demo")
+print("-------------------")
+print()
+
+# case conversion
+text = "Hello, World!"
+print("original:", text)
+print("uppercase:", strings.upper(text))
+print("lowercase:", strings.lower(text))
+print()
+
+# trimming whitespace
+padded = "  hello world  "
+print("padded:", "'" + padded + "'")
+print("trimmed:", "'" + strings.trim(padded) + "'")
+print()
+
+# splitting and joining
+sentence = "ruten is blazingly fast"
+words = strings.split(sentence, " ")
+print("sentence:", sentence)
+print("words:", words)
+joined = strings.join(words, "-")
+print("joined:", joined)
+print()
+
+# regex pattern matching
+pattern = "\\d+"
+test_str = "year 2024 has 365 days"
+print("text:", test_str)
+print("pattern:", pattern)
+matches = strings.regex_find(pattern, test_str)
+print("matches:", matches)
+print()
+
+# string replacement
+original = "python is slow"
+replaced = strings.replace(original, "python", "ruten")
+replaced = strings.replace(replaced, "slow", "fast")
+print("original:", original)
+print("replaced:", replaced)

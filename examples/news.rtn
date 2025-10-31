@@ -1,0 +1,30 @@
+import news
+import json
+
+print("=== news api demo ===\n")
+
+# get top headlines
+print("fetching top headlines...")
+headlines_data = news.headlines("us")
+headlines = json.parse(headlines_data)
+
+if headlines["status"] == "ok":
+    articles = headlines["articles"]
+    print("found", len(articles), "articles\n")
+    
+    # show first 3 articles
+    for i in range(0, 3):
+        article = articles[i]
+        print("title:", article["title"])
+        print("source:", article["source"]["name"])
+        print()
+
+# search news
+print("searching for 'technology' news...")
+search_data = news.search("technology")
+results = json.parse(search_data)
+
+if results["status"] == "ok":
+    print("found", results["totalResults"], "articles")
+
+print("\ndemo complete!")

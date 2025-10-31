@@ -1,0 +1,70 @@
+[package]
+name = "ruten"
+version = "2.0.0"
+edition = "2021"
+authors = ["ogcae <ogcae@proton.me>"]
+description = "blazingly fast scripting language built with rust"
+license = "MIT"
+repository = "https://github.com/ogcae/ruten"
+homepage = "https://github.com/ogcae/ruten"
+documentation = "https://github.com/ogcae/ruten/blob/main/DOCUMENTATION.md"
+readme = "README.md"
+keywords = ["programming-language", "interpreter", "scripting", "rust", "performance"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "ruten"
+path = "src/main.rs"
+
+[dependencies]
+# core dependencies
+regex = "1.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# http and async
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+tokio = { version = "1.35", features = ["full"] }
+hyper = { version = "0.14", features = ["full"] }
+hyper-tls = "0.5"
+
+# crypto
+sha2 = "0.10"
+md5 = "0.7"
+rand = "0.8"
+aes = "0.8"
+hex = "0.4"
+uuid = { version = "1.6", features = ["v4"] }
+
+# url encoding for api calls
+urlencoding = "2.1"
+
+# lazy static for global state
+lazy_static = "1.4"
+
+# subprocess and system
+subprocess = "0.2"
+num_cpus = "1.16"
+
+# cli and formatting
+colored = "2.1"
+indicatif = "0.17"
+
+# ai integrations (optional features)
+async-openai = { version = "0.18", optional = true }
+
+[features]
+default = []
+ai = ["async-openai"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+[profile.test]
+opt-level = 0
