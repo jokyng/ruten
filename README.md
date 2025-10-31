@@ -66,7 +66,7 @@ $ ruten script.rt          # ~ run file
   <img src="https://contrib.rocks/image?repo=ogcae/ruten" />
 </a>
 
-made with <a href="https://github.com/jokyng/ruten"><code>jokyng</code></a> by <a href="https://github.com/ogcae"><code>ogcae</code>
+made with <a href="https://github.com/jokyng"><code>jokyng</code></a> by <a href="https://github.com/ogcae"><code>ogcae</code>
 </a>
 
 
